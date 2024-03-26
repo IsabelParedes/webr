@@ -15,7 +15,7 @@ $(LIBTIFF_WASM_LIB): $(LIBTIFF_TARBALL) $(LIBJPEG_WASM_LIB)
 	tar -C $(BUILD) -xf $(LIBTIFF_TARBALL)
 	cp -r "$(WEBR_ROOT)/patches/tiff-$(LIBTIFF_VERSION)/." \
 	  "$(BUILD)/tiff-$(LIBTIFF_VERSION)/patches"
-	cd $(BUILD)/tiff-$(LIBTIFF_VERSION) && quilt push -a && \
+	cd $(BUILD)/tiff-$(LIBTIFF_VERSION) && \
 	  emconfigure ./configure \
 	    --enable-shared=no \
 	    --enable-static=yes \

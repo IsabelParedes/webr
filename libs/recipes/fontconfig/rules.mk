@@ -15,7 +15,7 @@ $(FC_DEPS): $(FC_TARBALL) $(LIBXML2_WASM_LIB) $(EM_PKG_CONFIG_PATH)/freetype2.pc
 	tar -C $(BUILD) -xf $(FC_TARBALL) --exclude=fcobjshash.h
 	cp -r "$(WEBR_ROOT)/patches/fontconfig-$(FC_VERSION)/." \
 	  "$(BUILD)/fontconfig-$(FC_VERSION)/patches"
-	cd $(BUILD)/fontconfig-$(FC_VERSION)/build && quilt push -a && \
+	cd $(BUILD)/fontconfig-$(FC_VERSION)/build && \
 	  LDFLAGS="$(LDFLAGS) -sUSE_FREETYPE=1 -sUSE_PTHREADS=0" \
 	  PTHREAD_CFLAGS=" " \
 	  emconfigure ../configure \

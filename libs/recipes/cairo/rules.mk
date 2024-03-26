@@ -15,7 +15,7 @@ $(CAIRO_WASM_LIB): $(CAIRO_TARBALL) $(PIXMAN_WASM_LIB) $(FC_DEPS)
 	tar -C $(BUILD) -xf $(CAIRO_TARBALL)
 	cp -r "$(WEBR_ROOT)/patches/cairo-$(CAIRO_VERSION)/." \
 	  "$(BUILD)/cairo-$(CAIRO_VERSION)/patches"
-	cd $(BUILD)/cairo-$(CAIRO_VERSION)/build && quilt push -a && \
+	cd $(BUILD)/cairo-$(CAIRO_VERSION)/build && \
 	  CFLAGS="$(CFLAGS) -DCAIRO_NO_MUTEX=1" \
 	  LDFLAGS="$(LDFLAGS) -sUSE_FREETYPE=1 -sUSE_PTHREADS=0" \
 	  emconfigure ../configure \

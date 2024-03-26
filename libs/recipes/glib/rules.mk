@@ -17,7 +17,7 @@ $(GLIB_WASM_LIB): $(GLIB_TARBALL)
 	tar -C $(BUILD) -xf $(GLIB_TARBALL)
 	cp -r "$(WEBR_ROOT)/patches/glib-$(GLIB_VERSION)/." \
 	  "$(BUILD)/glib-$(GLIB_VERSION)/patches"
-	cd $(BUILD)/glib-$(GLIB_VERSION) && quilt push -a && \
+	cd $(BUILD)/glib-$(GLIB_VERSION) && \
 	  LIBFFI_CFLAGS=' ' \
 	  LIBFFI_LIBS=' ' \
 	  emconfigure ./configure \

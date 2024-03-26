@@ -52,7 +52,6 @@
               lzma
               pcre2
               python3
-              quilt
               wget
               nodejs_18
 

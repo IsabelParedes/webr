@@ -62,7 +62,7 @@ $(BUILD)/state/R-$(R_VERSION)/r-patched: $(R_TARBALL)
 	mkdir -p $(BUILD)
 	tar -C $(BUILD) -xf $(R_TARBALL)
 	cp -r "$(WEBR_ROOT)/patches/R-$(R_VERSION)/." "$(R_SOURCE)/patches"
-	cd "$(R_SOURCE)/patches" && quilt push -a
+	cd "$(R_SOURCE)/patches"
 	mkdir -p $(BUILD)/state/R-$(R_VERSION)
 	touch $@
 

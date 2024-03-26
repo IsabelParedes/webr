@@ -17,7 +17,7 @@ $(PANGO_WASM_LIB): $(PANGO_TARBALL) $(PANGO_DEPS)
 	tar -C $(BUILD) -xf $(PANGO_TARBALL)
 	cp -r "$(WEBR_ROOT)/patches/pango-$(PANGO_VERSION)/." \
 	  "$(BUILD)/pango-$(PANGO_VERSION)/patches"
-	cd $(BUILD)/pango-$(PANGO_VERSION)/build && quilt push -a && \
+	cd $(BUILD)/pango-$(PANGO_VERSION)/build && \
 	  LDFLAGS="$(LDFLAGS) -sUSE_FREETYPE=1 -sUSE_PTHREADS=0" \
 	  PTHREAD_CFLAGS=" " \
 	  emconfigure ../configure \
