@@ -1,3 +1,0 @@
-[submodule "tools/flang"]
-	path = tools/flang
-	url = https://github.com/r-wasm/flang-wasm.git
