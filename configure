@@ -1,5 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -eu
+
+export EMFC=$(which lfortran)
+
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -23,6 +26,8 @@ function configure_emfc {
     EMFC_ROOT=`dirname ${EMFC}`
     if [ -f "${FORTRAN_WASM_LIB-}" ]; then
         EMFC_FLIB=${FORTRAN_WASM_LIB}
+    elif [ -f "${CONDA_PREFIX}/share/lfortran/lib/liblfortran_runtime_static.a" ]; then
+        EMFC_FLIB=`realpath ${CONDA_PREFIX}/share/lfortran/lib/liblfortran_runtime_static.a`
     elif [ -f "${EMFC_ROOT}/../../wasm/lib/libFortranRuntime.a" ]; then
         EMFC_FLIB=`realpath ${EMFC_ROOT}/../../wasm/lib/libFortranRuntime.a`
     else
@@ -55,5 +60,6 @@ elif [ -n "${EMFC-}" ]; then
     fi
 else
     # Build LLVM flang from source
-    ln -s fortran-flang.mk tools/fortran.mk
+    echo "MMM Do not build flang from source" # REMOVE
+    # ln -s fortran-flang.mk tools/fortran.mk
 fi
