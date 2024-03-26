@@ -1,0 +1,14 @@
+name: webr
+channels:
+- conda-forge
+dependencies:
+- cmake
+- cxx-compiler
+- emsdk
+- gfortran
+- gperf
+- lfortran
+- libgfortran-ng
+- nodejs
+- quilt3
+
